@@ -4,8 +4,17 @@ export default class LoginToggle extends Component {
 
   render() {
     return (
-      <div>
-        Act as logged-in <input type="checkbox" />
+      <div className="level-right">
+        <div className="level-item">
+          <div className="field">
+            <p className="control">
+              <label className="checkbox">
+                <input type="checkbox" />
+                Act as logged-in
+              </label>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
