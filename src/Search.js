@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 export default class Search extends Component {
 
+  doSearch(e) {
+    console.log('doSearch', e);
+  }
+
   render() {
     return (
       <div className="level-left">
@@ -11,7 +15,7 @@ export default class Search extends Component {
               <input className="input" type="text" placeholder="Search for a show" />
             </p>
             <p className="control">
-              <button className="button">
+              <button className="button" onClick={this.doSearch}>
                 SEARCH
               </button>
             </p>
