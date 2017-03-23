@@ -2,19 +2,15 @@ import React from 'react'
 import TilesRow from './TilesRow';
 import { searchResults } from './mock_data';
 
-class Results extends React.Component {
+const Results = ({ searchResults, onTileSelect }) => (
+  <div className="tile is-ancestor is-vertical">
+      <TilesRow items={searchResults} onSelect={onTileSelect/>
+  </div>
+);
 
-  onTileSelect(itemId) {
-    console.log('selected item: ', itemId);
-  }
-
-  render () {
-    return (
-      <div className="tile is-ancestor is-vertical">
-          <TilesRow items={searchResults} onSelect={this.onTileSelect}/>
-      </div>
-    )
-  }
+Results.propTypes = {
+  searchResults: PropTypes.array,
+  onTileSelect: PropTypes.array,
 }
 
 export default Results;
