@@ -12,7 +12,7 @@ const Tile = ({ item, onSelect }) => (
         alt={item.title}
       />
     </figure>
-    <p className="title">{item.title}</p>
+    <p className="title">{item.name}</p>
     <p className="subtitle">{item.desc}</p>
     </div>
   </div>

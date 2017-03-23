@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './header/Header';
 import Results from './results/Results';
-import { searchResults } from '../mocks/mock_data';
+// import { searchResults } from '../mocks/mock_data';
+import { search, toTileFormat } from '../api';
 
 class App extends Component {
   constructor(props) {
@@ -11,8 +12,12 @@ class App extends Component {
   }
 
   doSearch(searchTerm) {
-    console.log('searchTerm', searchTerm);
-    this.setState({ searchResults })
+    search(searchTerm).then(rawResults => {
+      this.setState({
+        searchResults: toTileFormat(rawResults),
+        rawResults
+      });
+    });
   }
 
   onTileSelect(itemId) {

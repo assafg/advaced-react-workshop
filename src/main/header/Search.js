@@ -14,10 +14,16 @@ export default class Search extends Component {
     this.setState({ searchTerm: e.target.value });
   }
 
-  doSearch(e) {
+  doSearch() {
     const { searchTerm } = this.state;
     const { doSearch } = this.props;
     doSearch(searchTerm);
+  }
+
+  onKeyDown(e) {
+    if (e.key === 'Enter') {
+      this.doSearch();
+    }
   }
 
   render() {
@@ -31,6 +37,7 @@ export default class Search extends Component {
                 type="text"
                 placeholder="Search for a show"
                 onChange={this.onSearchChange.bind(this)}
+                onKeyDown={this.onKeyDown.bind(this)}
               />
             </p>
             <p className="control">
