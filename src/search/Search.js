@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Search.css';
 import Header from './header/Header';
 import Results from './results/Results';
-// import { searchResults } from '../mocks/mock_data';
 import { search, toTileFormat } from '../api';
 
-class App extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -40,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Search;
