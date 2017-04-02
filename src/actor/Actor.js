@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react'
 
 class Actor extends React.Component {
   render () {
-    <div>
+    return (<div>
       Actor Page
-    </div>
+    </div>);
   }
 }
 
