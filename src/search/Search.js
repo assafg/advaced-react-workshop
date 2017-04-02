@@ -20,7 +20,7 @@ class Search extends Component {
   }
 
   onTileSelect(itemId) {
-    console.log('selected item: ', itemId);
+    this.props.router.push(`/show/${itemId}`);
   }
 
   render() {
