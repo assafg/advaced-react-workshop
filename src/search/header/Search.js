@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Search extends Component {
   static propTypes = {
-    doSearch: React.PropTypes.func.isRequired,
+    doSearch: PropTypes.func.isRequired,
+    searchTerm: PropTypes.string
   }
 
   constructor(props) {
     super(props);
-    this.state = { searchTerm: ''}
+    this.state = { searchTerm: props.searchTerm };
   }
 
   onSearchChange(e) {

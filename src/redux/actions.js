@@ -10,9 +10,9 @@ const searchRequest = (searchTerm) => ({
   payload: { searchTerm },
 });
 
-const searchSuccess = (results) => ({
+const searchSuccess = (searchResults) => ({
   type: SEARCH_SUCCESS,
-  payload: { results },
+  payload: { searchResults },
 });
 
 const searchFailed = (err) => ({

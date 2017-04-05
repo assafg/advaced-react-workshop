@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import Main from './Main';
-import Search from './search/Search';
+import Search from './search/SearchContainer';
 import Show from './show/Show';
 import Actor from './actor/Actor';
 

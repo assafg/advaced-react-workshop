@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './Search.css';
 import Header from './header/Header';
 import Results from './results/Results';
 import { search, toTileFormat } from '../api';
 
 class Search extends Component {
+  static propTypes = {
+    searchShows: PropTypes.func,
+    searchResults: PropTypes.array,
+    searchTerm: PropTypes.string,
+  }
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   doSearch(searchTerm) {
-    search(searchTerm).then(rawResults => {
-      this.setState({
-        searchResults: toTileFormat(rawResults),
-        rawResults
-      });
-    });
+    const { searchShows } = this.props;
+    searchShows(searchTerm);
   }
 
   onTileSelect(itemId) {
@@ -24,11 +24,12 @@ class Search extends Component {
   }
 
   render() {
-    const { searchResults } = this.state;
+    const { searchResults, searchTerm } = this.props;
     return (
       <div className="container">
         <Header
           doSearch={this.doSearch.bind(this)}
+          searchTerm={searchTerm}
         />
         <Results
           searchResults={searchResults}

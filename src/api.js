@@ -20,7 +20,7 @@ export const search = (searchTerm) =>
   axiosInstance.get(`search/shows?q=${encodeURI(searchTerm)}`)
     .then(res => res.data)
     .then(data => {
-      return data;
+      return toTileFormat(data);
     });
 
 export const showLookup = (showId) =>
