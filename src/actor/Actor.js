@@ -21,13 +21,12 @@ class Actor extends React.Component {
   goToShow(id) {
     this.props.router.push(`/show/${id}`);
   }
-  
+
   render () {
     const { details, credits } = this.state;
     if (!details) {
       return null;
     }
-    console.log(credits);
     return (
       <div>
         <div className="section">

@@ -20,7 +20,6 @@ export const search = (searchTerm) =>
   axiosInstance.get(`search/shows?q=${encodeURI(searchTerm)}`)
     .then(res => res.data)
     .then(data => {
-      console.log(data);
       return data;
     });
 
