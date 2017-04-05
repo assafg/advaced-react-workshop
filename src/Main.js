@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import LoginToggle from './LoginToggle';
+import LoginToggle from './LoginToggleContainer';
 
 class Main extends React.Component {
   constructor(props) {
