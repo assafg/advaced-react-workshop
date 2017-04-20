@@ -1,24 +1,14 @@
-import { createStore, combineReducers } from 'redux';
-import { fromJS } from 'immutable';
+import { createStore } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import * as reducers from './reducers';
-
-// Toggel Login action
-export const toggleIsLoggedIn = () => ({
-  type: 'TOGGLE_LOGGED_IN'
-});
-
-const isLoggedIn = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLE_LOGGED_IN':
-      return !state.isLoggedIn;
-    default:
-      return state;
-  }
-};
+import { actorReducer } from '../actor/actor.reducer';
+import { showReducer } from '../show/show.reducer';
 
 const combinedReducers = combineReducers({
-  isLoggedIn,
+  isLoggedIn: reducers.isLoggedIn,
   search: reducers.searchReducer,
+  actors: actorReducer,
+  shows: showReducer,
 });
 
 // store

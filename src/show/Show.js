@@ -1,19 +1,14 @@
-import React, { Component } from 'react'
-import { showLookup, showCast } from '../api';
+import React, { Component, PropTypes } from 'react'
 
 class Show extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  static propTypes = {
+    show: PropTypes.object,
+    loadShowDetails: PropTypes.func,
   }
 
   componentDidMount() {
-    showLookup(this.props.params.showId)
-      .then(details => {
-        this.setState({ details });
-        showCast(details.id)
-          .then(cast => this.setState({ cast }));
-      });
+    const { loadShowDetails } = this.props;
+    loadShowDetails(this.props.params.showId);
   }
 
   back() {
@@ -25,10 +20,11 @@ class Show extends Component {
   }
 
   render () {
-    const { details, cast } = this.state;
+    const { show: details } = this.props;
     if (!details) {
-      return null;
+      return <div/>;
     }
+    const cast = details.cast;
     return (
       <div>
         <div className="section">

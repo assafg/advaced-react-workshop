@@ -1,19 +1,17 @@
-import React, { Component } from 'react'
-import { showActor, showActorCastCredit } from '../api';
+import React, { Component, PropTypes } from 'react'
 import './Actor.css';
 
 class Actor extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+
+  static propTypes = {
+    fetchActor: PropTypes.func,
+    actor: PropTypes.object,
   }
 
   componentDidMount() {
-    showActor(this.props.params.actorId)
-      .then(details => this.setState({ details }));
-    showActorCastCredit(this.props.params.actorId)
-      .then(credits => this.setState({ credits }));
+    this.props.fetchActor(this.props.params.actorId);
   }
+
   back() {
     this.props.router.goBack();
   }
@@ -23,10 +21,11 @@ class Actor extends Component {
   }
 
   render () {
-    const { details, credits } = this.state;
+    const { actor: details } = this.props;
     if (!details) {
-      return null;
+      return <div/>;
     }
+    const credits = details.credits;
     return (
       <div>
         <div className="section">

@@ -5,6 +5,11 @@ export const SEARCH_REQUEST = 'SEARCH_REQUEST';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 export const SEARCH_FAILED = 'SEARCH_FAILED';
 
+// Toggel Login action
+export const toggleIsLoggedIn = () => ({
+  type: 'TOGGLE_LOGGED_IN'
+});
+
 const searchRequest = (searchTerm) => ({
   type: SEARCH_REQUEST,
   payload: { searchTerm },

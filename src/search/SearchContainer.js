@@ -3,8 +3,8 @@ import { searchShows } from '../redux/actions';
 import Search from './Search';
 
 const mapStateToProps = (state) => ({
-  searchTerm: state.search.getIn('searchTerm'),
-  searchResults: state.search.get('searchResults').toJS(),
+  searchTerm: state.getIn(['search', 'searchTerm']),
+  searchResults: state.getIn(['search', 'searchResults']).toJS(),
 });
 
 const mapDispatchToProps = dispatch => ({
