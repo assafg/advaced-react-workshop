@@ -2,16 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import './Search.css';
 import Header from './header/Header';
 import Results from './results/Results';
-import { search, toTileFormat } from '../api';
 
 class Search extends Component {
   static propTypes = {
     searchShows: PropTypes.func,
     searchResults: PropTypes.array,
     searchTerm: PropTypes.string,
-  }
-  constructor(props) {
-    super(props);
   }
 
   doSearch(searchTerm) {

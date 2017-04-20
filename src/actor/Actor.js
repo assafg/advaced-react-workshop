@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
 import { showActor, showActorCastCredit } from '../api';
 import './Actor.css';
 
-class Actor extends React.Component {
+class Actor extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -45,7 +45,7 @@ class Actor extends React.Component {
           <div className="columns">
             <div className="column">
               <figure className="image">
-                <img src={details.image.original}/>
+                <img src={details.image.original} alt={details.name}/>
               </figure>
             </div>
             <div className="column">
@@ -55,7 +55,7 @@ class Actor extends React.Component {
                     <li key={i} className="cast-credits-list pointer" onClick={this.goToShow.bind(this, c._embedded.show.externals.thetvdb)}>
                       <p>{c._embedded.show.name}</p>
                       <figure className="image">
-                        <img src={c._embedded.show.image.medium}/>
+                        <img src={c._embedded.show.image.medium} alt={c._embedded.show.name} />
                       </figure>
                     </li>
                   ))}

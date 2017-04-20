@@ -4,36 +4,36 @@ import {
   SEARCH_FAILED
 } from './actions';
 
-const searchInitialState = {
+import { fromJS, List } from 'immutable';
+
+const searchInitialState = fromJS({
   searchTerm: '',
   searchResults: [],
   isSearching: false,
   error: null,
-}
+});
 
 export const searchReducer = (state = searchInitialState, action) => {
   switch(action.type) {
     case SEARCH_REQUEST:
-      return {
-        searchTerm: action.payload.searchTerm,
-        searchResults: [],
-        isSearching: true,
-        error: null,
-      };
+      // This creates multiple objects along the way
+      return state
+        .set('searchTerm', action.payload.searchTerm)
+        .set('searchResults', new List())
+        .set('isSearching', true)
+        .set('error', null);
+
     case SEARCH_SUCCESS:
-      return {
-        searchResults: action.payload.searchResults,
-        isSearching: false,
-        searchTerm: state.searchTerm,
-        error: null,
-      };
+      return state.withMutations(s => { // Avoids creating multiple maps
+        s.set('searchResults', fromJS(action.payload.searchResults))
+          .set('isSearching', false)
+          .set('error', null);
+        });
     case SEARCH_FAILED:
-      return {
-        searchResults: action.payload.searchResults,
-        searchTerm: state.searchTerm,
-        isSearching: false,
-        error: action.payload.err,
-      };
+      return state.withMutations(s => { // Avoids creating multiple maps
+        s.set('isSearching', false)
+          .set('error', fromJS(action.payload.err));
+        });
     default:
       return state;
   }

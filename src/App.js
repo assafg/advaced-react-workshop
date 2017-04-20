@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import Main from './Main';
 import Search from './search/SearchContainer';
-import Show from './show/Show';
+import Show from './show/ShowContainer';
 import Actor from './actor/Actor';
 
 class App extends React.Component {

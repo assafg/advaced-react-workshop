@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
 import { showLookup, showCast } from '../api';
-class Show extends React.Component {
+
+class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -46,7 +47,7 @@ class Show extends React.Component {
           <div className="columns">
             <div className="column">
               <figure className="image">
-                <img src={details.image.original}/>
+                <img src={details.image.original} alt={details.name}/>
               </figure>
             </div>
             <div className="column">
@@ -79,7 +80,7 @@ class Show extends React.Component {
                   <p>{c.character.name}</p>
                   <p>{c.person.name}</p>
                   <figure className="image is-128x128">
-                    <img src={c.character.image.medium}/>
+                    <img src={c.character.image.medium} alt={c.person.name} />
                   </figure>
                 </div>
               ))

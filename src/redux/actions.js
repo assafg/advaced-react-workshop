@@ -20,7 +20,7 @@ const searchFailed = (err) => ({
   payload: { err },
 });
 
-export const searchShows = (searchTerm) => dispatch => {
+export const searchShows = dispatch => searchTerm => {
   dispatch(searchRequest(searchTerm));
   api.search(searchTerm)
     .then(res => dispatch(searchSuccess(res)))

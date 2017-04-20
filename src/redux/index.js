@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import { fromJS } from 'immutable';
 import * as reducers from './reducers';
 
 // Toggel Login action
