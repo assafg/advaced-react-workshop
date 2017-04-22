@@ -22,7 +22,7 @@ const actorLoadFailed = err => ({
   payload: err,
 });
 
-export const loadActorDetails = (disptach) => actorId => {
+export const loadActorDetails = actorId => disptach => {
   disptach(loadActor(actorId));
   Promise.all([
     showActor(actorId),

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { searchShows } from '../redux/actions';
+import { searchShows } from './search.actions';
 import Search from './Search';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  searchShows: (searchTerm) => searchShows(dispatch)(searchTerm),
+  searchShows: (searchTerm) => dispatch(searchShows(searchTerm)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

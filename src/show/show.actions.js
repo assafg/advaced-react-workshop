@@ -22,7 +22,7 @@ const showLoadFailed = err => ({
   payload: err,
 });
 
-export const loadShowDetails = (disptach) => showId => {
+export const loadShowDetails = showId => disptach => {
   disptach(loadShow(showId));
   showLookup(showId)
     .then(details => {

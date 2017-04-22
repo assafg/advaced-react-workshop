@@ -7,8 +7,9 @@ const mapStateToProps = state => ({
           state.getIn(['shows', 'currentShow']).toJS() :
           null,
 });
+
 const mapDispatchToProps = dispatch => ({
-  loadShowDetails: showId => loadShowDetails(dispatch)(showId),
+  loadShowDetails: showId => dispatch(loadShowDetails(showId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Show);
