@@ -24,7 +24,7 @@ export const actorReducer = (state = initialState, action) => {
       return state.withMutations(s => {
         s.set('error', null)
         .set('currentActor', fromJS(action.payload))
-        .setIn(['actorsCache', action.payload.id], fromJS(action.payload))
+        .setIn(['actorsCache', `${action.payload.id}`], fromJS(action.payload))
       });
     case ACTOR_LOAD_FAILED:
       return state.withMutations(s => {

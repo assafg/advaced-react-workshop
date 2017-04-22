@@ -24,7 +24,7 @@ export const showReducer = (state = initialState, action) => {
       return state.withMutations(s => {
         s.set('error', null)
         .set('currentShow', fromJS(action.payload))
-        .setIn(['showsCache', action.payload.externals.thetvdb], fromJS(action.payload))
+        .setIn(['showsCache', `${action.payload.externals.thetvdb}`], fromJS(action.payload))
       });
     case SHOW_LOAD_FAILED:
       return state.withMutations(s => {

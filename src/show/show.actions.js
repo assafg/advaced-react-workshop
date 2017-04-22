@@ -22,7 +22,12 @@ const showLoadFailed = err => ({
   payload: err,
 });
 
-export const loadShowDetails = showId => disptach => {
+export const loadShowDetails = showId => (disptach, getState) => {
+  const show = getState().getIn(['shows', 'showsCache', showId]);
+  if (show) {
+    return disptach(showLoadSuccess(show.toJS()));
+  }
+
   disptach(loadShow(showId));
   showLookup(showId)
     .then(details => {

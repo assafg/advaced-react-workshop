@@ -22,7 +22,11 @@ const actorLoadFailed = err => ({
   payload: err,
 });
 
-export const loadActorDetails = actorId => disptach => {
+export const loadActorDetails = actorId => (disptach, getState) => {
+  const actor = getState().getIn(['actors', 'actorsCache', actorId]);
+  if (actor) {
+    return disptach(actorLoadSuccess(actor.toJS()));
+  }
   disptach(loadActor(actorId));
   Promise.all([
     showActor(actorId),
