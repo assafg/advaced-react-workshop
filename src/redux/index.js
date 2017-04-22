@@ -8,6 +8,7 @@ import { searchReducer } from '../search/search.reducer';
 import customMiddleware from './middleware';
 
 const combinedReducers = combineReducers({
+  routing: reducers.routerReducer,
   isLoggedIn: reducers.isLoggedIn,
   search: searchReducer,
   actors: actorReducer,

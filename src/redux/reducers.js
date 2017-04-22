@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 
 export const isLoggedIn = (state = false, action) => {
   switch (action.type) {
@@ -7,3 +8,10 @@ export const isLoggedIn = (state = false, action) => {
       return state;
   }
 };
+
+export const routerReducer = (state = Map({}), action) => {
+  if (action.type.match(/^@@/)){
+    return Map({ locationBeforeTransitions: action.payload });
+  }
+  return state;
+}
