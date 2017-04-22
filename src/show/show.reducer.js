@@ -18,7 +18,7 @@ export const showReducer = (state = initialState, action) => {
       return state.withMutations(s => {
         s.set('error', null)
         .set('loading', true)
-        .setIn('currentShow', null);
+        .set('currentShow', null);
       });
     case SHOW_LOAD_SUCCESS:
       return state.withMutations(s => {

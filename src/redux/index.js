@@ -5,6 +5,7 @@ import * as reducers from './reducers';
 import { actorReducer } from '../actor/actor.reducer';
 import { showReducer } from '../show/show.reducer';
 import { searchReducer } from '../search/search.reducer';
+import customMiddleware from './middleware';
 
 const combinedReducers = combineReducers({
   isLoggedIn: reducers.isLoggedIn,
@@ -16,7 +17,10 @@ const combinedReducers = combineReducers({
 // store
 const store = createStore(combinedReducers,
   compose(
-    applyMiddleware(thunkMiddleware),
+    applyMiddleware(
+      thunkMiddleware,
+      ...customMiddleware,
+    ),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
