@@ -46,4 +46,5 @@ it('should test the clicking', () => {
   expect(img.length).toBe(1);
   img.simulate('click');
   expect(onSelect.callCount).toBe(1);
+  expect(onSelect.calledWithMatch(item.id)).toBe(true);
 })

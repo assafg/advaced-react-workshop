@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tile from './Tile';
 
 const TilesRow = ({ items, onTileSelect }) => (
-  <div className="tile is-12">
+  <div className="tile is-12 tile-row">
     {items.map(item => (
       <Tile key={item.id} item={item} onSelect={onTileSelect}/>
     ))}
