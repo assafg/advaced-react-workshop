@@ -10,7 +10,7 @@ const Tile = ({ item, onSelect }) => (
         className="is-3by4 pointer"
         onClick={() => onSelect(item.id)}
         src={item.img}
-        alt={item.title}
+        alt={item.name}
       />
     </figure>
     <p className="title">{item.name}</p>
